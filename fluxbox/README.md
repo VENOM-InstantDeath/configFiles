@@ -1,4 +1,4 @@
-#Instalación
+# Instalación
 
 Para instalar esta configuración de fluxbox copia todos los directorios excepto 'Milly' en el directorio de configuración de fluxbox, típicamente ubicado en `~/.fluxbox`.
 Tras haber copiado los archivos, entre al directorio Milly y ejecute el script `install.sh` usando
