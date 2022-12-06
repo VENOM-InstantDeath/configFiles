@@ -5,6 +5,7 @@ Tras haber copiado los archivos, entre al directorio Milly y ejecute el script `
 ```
 bash install.sh
 ```
+Tras haber terminado la instalación, instale las fuentes ttf-ubuntu-font-family y ttf-ubuntumono-nerd.
 Una vez hecho esto, reinicie fluxbox y ya podrá seleccionar el tema Milly en *fluxbox menu > user styles > Milly*
 
 ## NOTA
