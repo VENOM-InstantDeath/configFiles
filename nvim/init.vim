@@ -9,6 +9,9 @@ endfunction
 
 call plug#begin()
 "Plug 'itchyny/lightline.vim'
+Plug 'andweeb/presence.nvim'
+Plug 'Yggdroot/indentLine'
+Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
@@ -26,6 +29,7 @@ set laststatus=2
 set number
 set exrc
 set secure
+set splitbelow
 let g:SuperTabDefaultCompletionType    = '<C-n>'
 let g:SuperTabCrMapping                = 0
 let g:UltiSnipsExpandTrigger           = '<tab>'
@@ -36,6 +40,21 @@ let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
 
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsListSnippets="<c-t>"
+
+let g:user_emmet_leader_key='<C-Z>'
+
+function Pyrun()
+  if expand('%:e') == 'py'
+    12sp
+    terminal python %
+  endif
+  if expand('%:e') == 'cpp'
+    13sp
+    silent exec "!g++ ".expand('%')." -o ".expand('%:t:r')
+    exec ':terminal'.'./'.expand('%:t:r')
+  endif
+endfunction
+
 set fillchars=""
 nnoremap <C-s><right> :tabn<cr>
 nnoremap <C-s><left> :tabp<cr>
@@ -46,6 +65,7 @@ nnoremap <C-v> :vs
 nnoremap <C-d> :NERDTree<cr>
 nnoremap <C-q> :q<cr>
 nnoremap <C-a> :w<cr>
+nnoremap <C-e> :call Pyrun()<CR>
 " Required for Purify:
 syntax on " This is required
 colorscheme purify
@@ -56,3 +76,4 @@ set encoding=UTF-8
 autocmd VimEnter * NERDTree | wincmd p
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+nnoremap s :exec "normal i".nr2char(getchar())."\e"<CR>
